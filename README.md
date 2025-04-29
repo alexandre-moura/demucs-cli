@@ -4,7 +4,7 @@ Full-fidelity stem separation using open-source AI models, tuned for Apple Silic
 
 ## Project Overview
 
-Demucs Ultra Boost provides a one-line CLI tool to separate full songs into high-quality stems (vocals, drums, bass, others) using the highest quality `htdemucs_ft` model.
+Demucs-CLI provides a one-line CLI tool to separate full songs into high-quality stems (vocals, drums, bass, others) using the highest quality `htdemucs_ft` model.
 It automates virtualenv activation, performance tuning, and audio preprocessing — maximum quality is the goal.
 
 **Warning**
