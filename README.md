@@ -16,7 +16,7 @@ Precautions were taken to avoid hardware overexhertion, but are highly GPU-archi
 - High-fidelity model (`htdemucs_ft`, bag of 4 Transformer models)
 - Full CLI integration with automatic environment handling
 - Preprocessing with FFmpeg for cleaner input signals
-- Parallel processing (`-j` 1-8) for faster chunk inference
+- Parallel processing (`-j` flag) for faster chunk inference
 
 ## Project Structure
 
