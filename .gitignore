@@ -1,0 +1,29 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+demucs_env/
+env/
+venv/
+.env
+
+# Build/distribution artifacts
+*.egg-info/
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Output audio files
+*.wav
+*.mp3
+*.flac
+*.m4a
+
+# Output folders
+separated/
+demucs_output/
+
+# System/Editor metadata
+.DS_Store

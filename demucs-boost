@@ -1,0 +1,25 @@
+#!/bin/bash
+
+
+local input="$1"
+local out="/Users/alexandrepimentel/Downloads/demucs"
+local tmp_wav="/tmp/$(basename "${input%.*}").ultra.wav"
+
+echo "Converting to WAV..."
+ffmpeg -y -i "$input" -ar 44100 -ac 2 "$tmp_wav"
+
+echo " Running Demucs in ultra fidelity mode..."
+demucs -n htdemucs_ft \
+  --shifts 10 \
+  --overlap 0.5 \
+  --segment 7 \
+  -j 1 \
+  --clip-mode rescale \
+  -o "$out" \
+  "$tmp_wav"
+
+echo "Cleaning up temp..."
+rm "$tmp_wav"
+
+echo "Done! Output in: $out/htdemucs_ft"
+
