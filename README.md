@@ -1,23 +1,22 @@
-# Demucs-CLI — AI Audio Separation Pipeline
+# Demucs-CLI — AI Stem-splitting Pipeline
 
-Full-fidelity stem separation using open-source AI models, tuned for Apple Silicon and CLI automation.
+Demucs-based high-fidelity stem separation tool built for convenient CLI usage.
 
 ## Project Overview
 
 Demucs-CLI provides a one-line CLI tool to separate full songs into high-quality stems (vocals, drums, bass, others) using the highest quality `htdemucs_ft` model.
 It automates virtualenv activation, performance tuning, and audio preprocessing — maximum quality is the goal.
 
-**Warning**
-Precautions were taken to avoid hardware overexhertion, but are highly GPU-architecture depedent. System monitoring is advised.
+**Warning**:
+Precautions were taken to avoid hardware overexhertion, but are highly GPU-architecture depedent. **System monitoring is advised.**
 
 ## Features
 
 - One-line global command (`demucs-boost`) to split songs anywhere
 - High-fidelity model (`htdemucs_ft`, bag of 4 Transformer models)
-- Optimized for macOS (Apple Silicon) with CPU fallback tuning
 - Full CLI integration with automatic environment handling
 - Preprocessing with FFmpeg for cleaner input signals
-- Parallel processing (`-j 8`) for faster chunk inference
+- Parallel processing (`-j` 1-8) for faster chunk inference
 
 ## Project Structure
 
@@ -26,6 +25,7 @@ Precautions were taken to avoid hardware overexhertion, but are highly GPU-archi
 | `demucs-boost` | Main CLI script wrapper              |
 | `.gitignore`   | Standard ignores (audio, temp files) |
 | `README.md`    | Project documentation                |
+| `requirements.txt`| Necessary libs                    |
 
 ## How to Use
 
@@ -101,13 +101,13 @@ demucs_output/
 
 - `htdemucs_ft` delivers highest-fidelity and least artifact presence for voice and instrumentals among `htdemucs`, `htdemucs_ft`, and `mdx_extra_q` across all tested settings.
 - `demucs-boost` preset script automatically maxes all relevant parameters (within hardware limits), including shifts, overlap, bitrate handling, and output directory.
-- GPU acceleration (`-d mps`) remains unsupported for this model due to PyTorch MPS backend limitations; all operations default to CPU.
+- GPU acceleration (`-d mps`) remains unsupported on Apple Silicon PyTorch MPS backend limitations; all operations default to CPU.
 - Running with maximum settings is very resource-intensive and slow; CPU multithreading is supported under the `-j` flag, but caution is advised.
 
 ## Comparative Results
 
 - UVR **(Ultimate Vocal Remover - multi-model GUI)** offers slightly better vocal isolation but worse instrumental separation compared to Demucs. Worth checking out especially for karaoke setup.
-- If you want _even higher quality stem-splitting_ or are running into time / hardware limitations, **Logic Pro**'s built-in tool (Demucs finetuning) offers better results and runs about 100x faster.
+- If you want _even higher quality_ stem-splitting or are running into time / hardware limitations, **Logic Pro**'s built-in tool (Demucs finetuning) offers better results and runs about 100x faster.
 
 ## License
 
